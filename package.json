@@ -1,0 +1,42 @@
+{
+  "name": "@sounds.of.limbo/zeitnot",
+  "version": "0.0.1",
+  "description": "work with time without a trouble",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "TS_NODE_PROJECT=tsconfig.test.json npx mocha -r ts-node/register ./src/**/*.test.ts",
+    "build": "npm test && rm -rf dist && npx tsc",
+    "publish:patch": "npm run build && npm version patch && npm run pub_n_go",
+    "publish:minor": "npm run build && npm version minor && npm run pub_n_go",
+    "publish:major": "npm run build && npm version major && npm run pub_n_go",
+    "pub_n_go": "npm publish --access public && git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sounds-of-limbo/zeitnot.git"
+  },
+  "keywords": [
+    "time",
+    "date",
+    "timezone",
+    "moment"
+  ],
+  "author": "Limbo Sounds",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sounds-of-limbo/zeitnot/issues"
+  },
+  "homepage": "https://github.com/sounds-of-limbo/zeitnot#readme",
+  "devDependencies": {
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.6",
+    "mocha": "^10.1.0",
+    "should": "^13.2.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@sounds.of.limbo/extensions": "^0.4.0"
+  }
+}
